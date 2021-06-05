@@ -1,6 +1,6 @@
 DATA = [
     {
-        ' name': 'Facundo',
+        'name': 'Facundo',
         'age': 72,
         'organization': 'Platzi',
         'position': 'Technical Coach',
@@ -71,15 +71,27 @@ DATA = [
     },
 ]
 
-def run():
 
-    all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python"]
-    all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python"]
+def run():
+    """
+    docstring
+    """
+    all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python" ]
+    all_platzi_worker = [worker["name"] for worker in DATA if worker["organization"] == "Platzi" ]
+    adults= list(filter(lambda))
+    print("Especialistas en python")
+
     for worker in all_python_devs:
+        
         print(worker)
-    pass
+
+    print("Trabajadores de Platzi")
+
+    for worker in all_platzi_worker:
+        
+        print(worker)     
+
+
 
 if __name__ == "__main__":
     run()
-
-    pass
