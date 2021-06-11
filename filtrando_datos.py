@@ -76,22 +76,41 @@ def run():
     """
     docstring
     """
-    all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python" ]
-    all_platzi_worker = [worker["name"] for worker in DATA if worker["organization"] == "Platzi" ]
-    adults= list(filter(lambda))
-    print("Especialistas en python")
+    #all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python"]
+    all_python_devs = list(filter(lambda worker : worker["language"] == "python" , DATA ) )
+    all_python_devs = list(map(lambda worker : worker["name"],all_python_devs ) )
+
+    #all_platzi_worker = [worker["name"] for worker in DATA if worker["organization"] == "Platzi"]
+    all_platzi_worker = list(filter(lambda worker : worker["organization"] =="Platzi" , DATA ) )
+    all_platzi_worker = list(map(lambda worker : worker["name"],all_platzi_worker) )
+
+    #adults = list(filter(lambda worker : worker["age"] > 18, DATA ) )
+    #adults = list(map( lambda worker : worker["name"],adults ) )
+    adults = [worker["name"] for worker in DATA if worker["age"] > 18]
+    
+    #old_people = list(map(lambda worker : worker | {"old" : worker["age"]>70},DATA))
+    old_people = {worker : worker  for worker["name"] in DATA if worker["age"]>70 }
+    print("Especialistas en python \n")
 
     for worker in all_python_devs:
-        
+
         print(worker)
 
-    print("Trabajadores de Platzi")
+    print("Trabajadores de Platzi \n")
 
     for worker in all_platzi_worker:
-        
-        print(worker)     
 
+        print(worker)
 
+    print("Adultos \n")
+    for worker in adults:
+
+        print(worker)
+
+    print("Viejos \n" )
+    for worker in old_people:
+
+        print(worker)
 
 if __name__ == "__main__":
     run()
